@@ -22,6 +22,10 @@ const tourSchema = new mongoose.Schema({
         type:String,
         required:[true,'Please add a description'],
     },
+    views:{
+        type:Number,
+        default:0
+    }
 },{
     timestamps:true
 })

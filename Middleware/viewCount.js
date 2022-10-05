@@ -3,7 +3,6 @@ const {  getAtour} = require("../Services/Tour.services");
 const viewCount = async (req, res) => {
   const { id } = req.params;
   const tour = await getAtour(id);
-  console.log(tour);
   if (!tour) {
     res.status(404).send({
       success: false,
