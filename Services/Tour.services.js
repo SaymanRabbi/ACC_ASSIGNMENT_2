@@ -17,3 +17,9 @@ return {tour,toatalTours};
 exports.getAtour = async(id) => {
    return await Tour.findById(id);
 }
+exports.updateAtour= async(id,updateTour) => {
+    const result = await Tour.updateOne({_id:id},{$set:updateTour},{
+        runValidators:true
+    });
+    return result; 
+}

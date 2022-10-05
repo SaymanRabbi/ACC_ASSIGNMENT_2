@@ -1,4 +1,4 @@
-const { postATour,getAllTours,getAtour } = require("../Services/Tour.services");
+const { postATour,getAllTours,getAtour,updateAtour } = require("../Services/Tour.services");
 
 //Get all products
 exports.getAllTours = async(req, res,next) => {
@@ -61,4 +61,21 @@ try {
 } catch (error) {
     next(error)
 }
+}
+exports.updateTour= async(req, res,next) => {
+    try {
+        const data  = await updateAtour(req.params.id,req.body);
+        if(!data.modifiedCount){
+          return  res.status(404).json({
+                status: "fail",
+                message: "Tour not found"
+            })
+        }
+        res.status(200).json({
+            status: "success",
+            data: data
+        })
+    } catch (error) {
+        next(error)
+    }
 }
