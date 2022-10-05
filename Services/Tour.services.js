@@ -14,3 +14,6 @@ const tour = await Tour.find(tourObj)
  const toatalTours = await Tour.countDocuments(tourObj);
 return {tour,toatalTours};
 }
+exports.getAtour = async(id) => {
+   return await Tour.findById(id);
+}
