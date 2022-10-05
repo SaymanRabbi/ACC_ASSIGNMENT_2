@@ -1,6 +1,6 @@
 const express = require('express');
-const app = express();
 const cors = require('cors');
+const app = express();
 const tour = require('./Routes/Tour.route');
 const { ErrorHandeler } = require('./Middleware/Error.handeler');
 
