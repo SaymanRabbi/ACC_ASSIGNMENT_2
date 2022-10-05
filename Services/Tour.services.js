@@ -23,3 +23,10 @@ exports.updateAtour= async(id,updateTour) => {
     });
     return result; 
 }
+exports.TopviewdTour = async() => {
+    const data  = await Tour.find().sort({views: -1}).limit(3)
+    return(data)
+}
+exports.getCheapestToursService = async () => {
+    return await Tour.find().sort({price: 1}).limit(3);
+}

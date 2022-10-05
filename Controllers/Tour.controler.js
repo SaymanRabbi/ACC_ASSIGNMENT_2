@@ -1,4 +1,4 @@
-const { postATour,getAllTours,getAtour,updateAtour } = require("../Services/Tour.services");
+const { postATour,getAllTours,getAtour,updateAtour,TopviewdTour,getCheapestToursService } = require("../Services/Tour.services");
 
 //Get all products
 exports.getAllTours = async(req, res,next) => {
@@ -78,4 +78,27 @@ exports.updateTour= async(req, res,next) => {
     } catch (error) {
         next(error)
     }
+}
+exports.topViewedTours= async(req, res,next) => {
+try {
+    const data = await TopviewdTour()
+    res.status(200).json({
+        status: "success",
+        data: data
+    })
+} catch (error) {
+    next(error)
+}    
+}
+exports.getCheapestTours= async(req,res,next)=>{
+try {
+    const data = await getCheapestToursService()
+    res.status(200).send({
+        status: "success",
+        data: data
+    })
+
+} catch (error) {
+    next(error)
+}
 }
