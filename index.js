@@ -33,5 +33,3 @@ process.on('unhandledRejection', (err) => {
     
     
     })
-// Routes
-module.exports = app;
