@@ -3,6 +3,7 @@ const Tour = require('../Models/Tour.schema');
 exports.postATour = async(tour) => {
     const newTour = new Tour(tour);
     const data = await newTour.save();
+    console.log("hello");
     return data;
 }
 exports.getAllTours = async(tourObj,queries) => {
