@@ -11,10 +11,10 @@ app.use(express.json());
 
 app.use('/api/v1/tour', tour);
 
+dbConnection()
 app.get("/",(req,res)=>{
     res.send("Route Is Working!!")
 })
-dbConnection()
 const port = process.env.PORT || 5000;
 app.listen(port,()=>{
     console.log(`Server is running on port ${port}`.yellow.bold);
