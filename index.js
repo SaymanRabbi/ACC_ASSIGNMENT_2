@@ -23,13 +23,3 @@ app.all("*", (req, res) => {
     res.send("404 not found")
     })
 app.use(ErrorHandeler)
-process.on('unhandledRejection', (err) => {
-    
-      console.log(`Logged Error: ${err}`);
-    
-      // Close server & exit process
-    
-      app.close(() => process.exit(1));
-    
-    
-    })
