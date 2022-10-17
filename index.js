@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const tour = require('./Routes/Tour.route');
-const { ErrorHandeler } = require('./Middleware/Error.handeler');
+const ErrorHandeler  = require('./Middleware/Error.handeler');
 const dbConnection = require('./server');
 
 // Middleware
@@ -22,9 +22,8 @@ app.listen(port,()=>{
 app.all("*", (req, res) => {
     res.send("404 not found")
     })
-   
-    app.use(ErrorHandeler)
-    process.on('unhandledRejection', (err) => {
+app.use(ErrorHandeler)
+process.on('unhandledRejection', (err) => {
     
       console.log(`Logged Error: ${err}`);
     
